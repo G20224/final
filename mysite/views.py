@@ -72,7 +72,7 @@ def tour_detail(request, pk):
         viewed_tours.insert(0, viewed_tour)
         viewed_tours = viewed_tour[:max_viewed_tours_length]
         request.session['viewed_tours'] = viewed_tours
-    return render(request, "reviews/tour_detail.html", context)
+    return render(request, "qwer.html", context)
 
 @login_required 
 @permission_required('mysite.create', raise_exception=True)
@@ -105,7 +105,7 @@ def edit(request, id):
             return HttpResponseRedirect("/index")
         else:
             return render(request, "edit.html", {"tour": tour})
-    except Movie.DoesNotExist:
+    except Tour.DoesNotExist:
         return HttpResponseNotFound("<h2>Tour not found</h2>")
      
 
@@ -116,7 +116,7 @@ def delete(request, id):
         tour = Tour.objects.get(id=id)
         tour.delete()
         return HttpResponseRedirect("/index")
-    except Movie.DoesNotExist:
+    except Tour.DoesNotExist:
         return HttpResponseNotFound("<h2>Tour not found</h2>")    
 
 def review_edit(request, tour_pk, review_pk=None):
@@ -141,7 +141,7 @@ def review_edit(request, tour_pk, review_pk=None):
                 messages.success(request, "Review for \"{}\" created.".format(tour))
             
             updated_review.save()
-            return redirect("tour_detail", tour.pk)
+            return redirect("qwer", tour.pk)
     else:
         form = ReviewForm(instance=review)
 
