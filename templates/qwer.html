@@ -394,7 +394,8 @@
 			<div class="tour">
 				<div class="left">
 					<h2>{{ tour.name }}</h2>
-					<p><img class="ig" src="calen.png" width="32px" height="30px" style=""></img>Duration: {{ tour.duration }}</p>
+					<p><img class="ig" src="calen.png" width="32px" height="30px" style=""></img>Duration: {{
+						tour.duration }}</p>
 					<p><img class="ig" src="money.png" width="32px" height="30px"></img>Cost: ${{ tour.price }}</p>
 					<p><img class="ig" src="time.png" width="32px" height="30px"></img>Departure Time: 9:00 AM</p>
 					<p>Contact Information:</p>
@@ -446,6 +447,38 @@
 			</div>
 		</div>
 	</section>
+
+	{% if not reviews %}
+	<hr>
+	{% if user.is_authenticated %}
+	<h3>Be the first one to write a review.</h3>
+	{% endif %}
+	{% else %}
+	<span class="text-success">Overall Rating: </span><span class="badge badge-primary badge-pill">{{ tour_rating
+		}}</span>
+	<br>
+	<hr>
+	<h3>Comments</h3>
+	<ul>
+		{% for review in reviews %}
+		<li class="list-group-item">
+			<span class="text-success">Review comment: </span> <span>{{ review.comment }}</span>
+			<br>
+			<span class="text-success">Created on: </span><span>{{ review.date_created }}</span>
+			<br>
+			<span class="text-success">Rating: </span><span class="badge badge-secondary badge-pill">{{ review.rating
+				}}</span>
+			<br>
+			<span class="text-success">Creator: </span><span>{{ review.creator.username }}</span>
+			<br>
+		</li>
+		{% endfor %}
+	</ul>
+	{% endif %}
+	{% if user.is_authenticated %}
+	<a class="btn btn-success" href="{% url 'review_create' tour.pk %}">Add Review</a>
+	{% endif %}
+	{% endblock %}
 
 	<footer class="footer">
 		<div class="container">
