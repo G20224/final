@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+
+{% block content %} 
+<br>
+<div class="container" style="margin-right: 20%;">
+	<form method="GET" action="{% url 'search_results' %}">
+		<div class="form-row">
+			<div class="col-md-4 mb-3">
+				<label for="validationDefault01">Location</label>
+				<input name="searched" type="text" class="form-control" id="validationDefault01" placeholder="Enter location"
+					required>
+			</div>
+			<div class="col-md-2 mb-3">
+				<label for="validationDefault04">Price</label>
+				<input type="number" class="form-control" id="validationDefault02" required>
+			</div>
+			<div class="col-md-2 mb-3">
+				<label for="validationDefault04">Duration</label>
+				<input type="number" class="form-control" id="validationDefault03" required>
+			</div>
+			<div class="col-md-2 mb-3">
+				<label for="validationDefault05">&nbsp;</label>
+				<button class="btn btn-primary btn-block" type="submit">Search</button>
+			</div>
+		</div>
+	</form>
+</div>
+
+
+</div>
+<div style="margin-top: 3%;margin-right: 20%;">
+	<div class="card mx-auto d-block" style="width:40%">
+		<img class="card-img1" src="https://raw.githubusercontent.com/G20224/For-me/main/haha.png" alt="Card image">
+	</div>
+</div>
+
+
+<br>
+<br>
+
+<div class="container">
+	<div class="row">
+    {% for x in tour_list %}
+      <div class="col-md-4">
+        <div class="card" style="height: 98%;">
+          <img src="{{ MEDIA_URL }}{{ x.tour.image.url }}" alt="{{ x.tour.name }}" enctclass="card-img-top" >
+          <div class="card-body">
+              <h5 class="card-title">{{ x.tour.name }}</h5>
+              <p class="card-text">{{ x.tour.description }}</p>
+              <div class="order-container d-flex align-items-center">
+                <!-- <span class="price mr-2">x.tour.price</span> -->
+                <a class="btn btn-primary btn-sm active" role="button"  aria-pressed="true" href="{% url 'tour_detail' x.tour.pk %}">Reviews</a></li>
+              </div>
+          </div> 
+        </div> 
+      </div>
+    {% endfor %}
+  </div>
+</div>
+		
+
+
+
+		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+		<script src="js/jquery-3.3.1.min.js"></script>
+		<script src="js/popper.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+
+
+
+
+  <!-- {% for x in mymembers2 %}
+      <div div class="d-flex flex-row">
+        <div class="col-md-4 mb-4">
+          <div class="card" style="width:300px">
+          <img class="card-img-top" src="img_avatar1.png" alt="Card image">
+          <div class="card-body">
+          <h4 class="card-title">John Doe</h4>
+          <p class="card-text">Some example text.</p>
+          <a href="details/{{ x.id }}" class="btn btn-primary">{{ x.name }}</a>
+          </div>
+          </div>
+        </div>
+    </div>
+  {% endfor %} -->
+    
+
+{% endblock %}

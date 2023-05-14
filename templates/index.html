@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+    <h3>If you want to add or correct information about tours</h3><br>
+    <form method="POST" action="index/create/" class="row g-2" >
+        {% csrf_token %}
+        <div class="col-md-12">
+          <label class="form-label">Name of Tour</label>
+          <input type="text" class="form-control" name="name"/>
+        </div>
+        <div class="col-md-6">
+            <label class="form-label">Description</label>
+            <textarea class="form-control" name="description"></textarea>
+          </div>
+        <div class="col-12">
+          <label class="form-label">Destination</label>
+          <input type="text" class="form-control" name="destination"/>
+        </div>
+        <div class="col-md-4">
+          <label class="form-label">Price</label>
+          <input type="number" class="form-control" name="price"/>
+        </div>
+        <div class="col-md-4">
+          <label class="form-label">Duration</label>
+          <input type="number" class="form-control" name="duration"/>
+        </div>
+        <div class="col-md-6" style="margin-top: 2%;">
+          <label class="form-label">Upload media about the tour:</label>
+          <input type="file" id="media-upload" name="image">
+        </div>
+        <div class="col-12">
+          <button value="Save" type="submit" class="btn btn-primary">Save</button>
+        </div>
+      </form>
+    {% if tours.count > 0 %}
+    <h2>List of Tours</h2>
+    <table>
+        <thead><th>name</th><th>destination</th><th>price</th></thead>
+        {% for tour in tours %}
+        <tr>
+            <td>{{ tour.name }}</td>
+            <td>{{ tour.destination }}</td>
+            <td>{{ tour.price }}</td>
+            <td><a href="index/edit/{{tour.id}}">Edit</a> | <a href="index/delete/{{tour.id}}">Delete</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% endif %}
+{% endblock %}

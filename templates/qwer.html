@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Travel Tour</title>
+
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,400italic,600,700' rel='stylesheet'
+		type='text/css'>
+	<link href="bootstrap.min.css" rel="stylesheet">
+	<link href="bootstrap-datetimepicker.min.css" rel="stylesheet">
+	<link href="flexslider.css" rel="stylesheet">
+	<link href="footer.css" rel="stylesheet">
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
+
+	<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500&display=swap" rel="stylesheet">
+
+	<link href="https://fonts.googleapis.com/css?family=Source+Serif+Pro:400,600&display=swap" rel="stylesheet">
+
+	<link rel="stylesheet" href="fonts/icomoon/style.css">
+
+
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+
+
+	<link rel="stylesheet" href="css/style.css">
+
+	<style>
+		.tm-header {
+			background-color: #8B4513;
+			color: #fff;
+			padding: 20px 0;
+		}
+
+		.tm-site-name {
+			display: inline-block;
+			font-size: 24px;
+			font-weight: bold;
+			color: #fff;
+			text-decoration: none;
+		}
+
+		.tm-site-name:hover {
+			color: #f8f9fa;
+		}
+
+		nav ul {
+			list-style: none;
+			margin: 0;
+			padding: 0;
+		}
+
+		nav li {
+			display: inline-block;
+			margin-right: 20px;
+		}
+
+		nav li:last-child {
+			margin-right: 0;
+		}
+
+		nav a {
+			display: inline-block;
+			font-size: 16px;
+			color: #fff;
+			text-decoration: none;
+		}
+
+		nav a:hover {
+			color: #f8f9fa;
+		}
+
+		.mobile-menu-icon {
+			display: none;
+		}
+
+		@media (max-width: 991px) {
+			.tm-site-name-container {
+				width: 100%;
+				text-align: center;
+				margin-bottom: 20px;
+			}
+
+			.mobile-menu-icon {
+				display: block;
+				float: right;
+				margin-top: -40px;
+			}
+
+			nav {
+				display: none;
+				position: absolute;
+				top: 100%;
+				left: 0;
+				width: 100%;
+				background-color: #8B4513;
+				padding: 20px;
+				text-align: center;
+				margin-top: 50px;
+			}
+
+			nav ul {
+				display: block;
+				text-align: center;
+			}
+
+			nav li {
+				display: block;
+				margin: 0;
+			}
+
+			nav a {
+				display: block;
+				margin-bottom: 10px;
+			}
+
+			nav a:hover {
+				color: #f8f9fa;
+			}
+
+			.mobile-menu-icon-wrap {
+				width: 40px;
+				height: 40px;
+				position: relative;
+				cursor: pointer;
+			}
+
+			.stick {
+				display: block;
+				width: 100%;
+				height: 2px;
+				background-color: #fff;
+				position: absolute;
+				left: 0;
+				transition: transform 0.3s ease;
+			}
+
+			.stick-1 {
+				top: 0;
+			}
+
+			.stick-2 {
+				top: 50%;
+				transform: translateY(-50%);
+			}
+
+			.stick-3 {
+				bottom: 50%;
+				transform: translateY(50%);
+			}
+
+			.stick-4 {
+				bottom: 0;
+			}
+
+			.mobile-menu-icon.active .stick-1 {
+				transform: rotate(45deg) translate(5px, 5px);
+			}
+
+			.mobile-menu-icon.active .stick-2 {
+				opacity: 0;
+			}
+
+			.mobile-menu-icon.active .stick-3 {
+				opacity: 0;
+			}
+
+			.mobile-menu-icon.active .stick-4 {
+				transform: rotate(-45deg) translate(5px, -5px);
+			}
+
+			nav.active {
+				display: block;
+			}
+		}
+
+		.frame {
+			width: 200px;
+			height: 250px;
+			margin: 10px;
+			background-color: #f2f2f2;
+			border-radius: 20px;
+			overflow: hidden;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+
+		}
+
+		.frame img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+
+		.bring {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			border-top: 2px solid #ccc;
+			border-bottom: 2px solid #ccc;
+			padding: 20px 0;
+		}
+
+		.left,
+		.right {
+			width: 45%;
+		}
+
+		.left ul,
+		.right ul {
+			columns: 2;
+			-webkit-columns: 2;
+			-moz-columns: 2;
+		}
+
+		.left h2,
+		.right h2 {
+			text-align: center;
+			margin-bottom: 10px;
+		}
+
+		.left li,
+		.right li {
+			margin-bottom: 10px;
+		}
+
+		.left li:last-child,
+		.right li:last-child {
+			margin-bottom: 0;
+		}
+
+		.tour {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			border: 2px solid #ccc;
+			border-radius: 10px;
+			padding: 20px;
+			margin-bottom: 20px;
+		}
+
+		.left {
+			width: 60%;
+		}
+
+		.right {
+			width: 35%;
+			font-size: 15px;
+		}
+
+		.left h2 {
+			font-size: 24px;
+			margin-bottom: 10px;
+		}
+
+		.left p {
+			font-size: 18px;
+			margin-bottom: 10px;
+		}
+
+		.left ul {
+			margin-top: 10px;
+			margin-bottom: 0;
+		}
+
+		.left li {
+			font-size: 16px;
+			margin-bottom: 5px;
+		}
+
+		.right img {
+			width: 100%;
+			border-radius: 10px;
+		}
+
+		.footer {
+			background-color: #f8f9fa;
+			padding: 50px 0;
+			margin-top: 50px;
+		}
+
+		.footer-site-logo a {
+			font-size: 24px;
+			font-weight: bold;
+			color: #333;
+		}
+
+		.nav-links li {
+			display: inline-block;
+			margin-right: 20px;
+		}
+
+		.nav-links li:last-child {
+			margin-right: 0;
+		}
+
+		.social h3 {
+			font-size: 20px;
+			margin-bottom: 20px;
+		}
+
+		.social ul {
+			margin: 0;
+			padding: 0;
+		}
+
+		.social li {
+			display: inline-block;
+			margin-right: 10px;
+		}
+
+		.social li:last-child {
+			margin-right: 0;
+		}
+
+		.social a {
+			display: block;
+			width: 40px;
+			height: 40px;
+			line-height: 40px;
+			text-align: center;
+			border-radius: 50%;
+			background-color: #333;
+			color: #fff;
+		}
+
+		.social a:hover {
+			background-color: #555;
+		}
+
+		.footer p {
+			font-size: 16px;
+			color: #666;
+			margin-bottom: 0;
+		}
+
+		body {
+			background: linear-gradient(to bottom, #1E90FF, #FFFFFF);
+		}
+
+		.ig {
+			margin-right: 10px;
+		}
+
+		.flexslider-banner {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			flex-direction: column;
+		}
+
+		#logo {
+			margin-bottom: 20px;
+		}
+	</style>
+</head>
+
+<body class="tm-gray-bg">
+
+	<div class="scroll-up-btn">
+		<i class="fa fa-angle-up"></i>
+	</div>
+	<div class="tm-header">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-6 col-md-4 col-sm-3 tm-site-name-container">
+					<a href="index.html" class="tm-site-name">
+						<img src="logo.png" width="100" height=auto id="logo">
+					</a>
+				</div>
+				<div class="col-lg-6 col-md-8 col-sm-9">
+					<div class="mobile-menu-icon">
+						<div class="mobile-menu-icon-wrap">
+							<span class="stick stick-1"></span>
+							<span class="stick stick-2"></span>
+							<span class="stick stick-3"></span>
+							<span class="stick stick-4"></span>
+						</div>
+					</div>
+					<nav>
+						<ul>
+							<li style="margin-top: 30px;">
+								<h2><a href="#">Home</a></h2>
+							</li>
+							<li>
+								<h2><a href="#">About</a></h2>
+							</li>
+							<li>
+								<h2><a href="#">Profile</a></h2>
+							</li>
+							<li>
+								<h2><a href="#">Contact</a></h2>
+							</li>
+						</ul>
+					</nav>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div>
+		<div class="flexslider flexslider-banner">
+			<h3>Tour in:</h3>
+			<!-- name tour -->
+		</div>
+	</div>
+
+	<div>
+
+	</div>
+
+	<section class="container tm-home-section-1" id="more">
+		<div class="row" style="padding-top:80px;">
+			<div class="col-lg-3 col-md-3 col-sm-6">
+				<div class="tm-home-box-1">
+					<div class="frame">
+						<img src="amangiri.jpg" alt="Image 1">
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-3 col-md-3 col-sm-6">
+				<div class="tm-home-box-1">
+					<div class="frame">
+						<img src="borgo.jpg" alt="Image 2">
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-3 col-md-3 col-sm-6">
+				<div class="tm-home-box-1">
+					<div class="frame">
+						<img src="romance.jpg" alt="Image 3">
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-3 col-md-3 col-sm-6">
+				<div class="tm-home-box-1">
+					<div class="frame">
+						<img src="Senses.jpg" alt="Image 4">
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="bring">
+			<div class="left">
+				<h2>What to Bring</h2>
+				<ul>
+					<li>Passport or ID</li>
+					<li>Travel itinerary and tickets</li>
+					<li>Cash, credit cards, and ATM card</li>
+					<li>Phone and charger</li>
+					<li>Camera and charger</li>
+					<li>Travel adapter and converter</li>
+					<li>Medications and prescriptions</li>
+					<li>Toiletries (toothbrush, toothpaste, shampoo, soap, etc.)</li>
+					<li>Sunscreen and insect repellent</li>
+				</ul>
+			</div>
+			<div class="right">
+				<h2>What Not to Bring</h2>
+				<ul>
+					<li>Illegal drugs</li>
+					<li>Weapons or firearms</li>
+					<li>Valuable jewelry or items</li>
+					<li>Too many clothes or shoes</li>
+					<li>Heavy or bulky items</li>
+					<li>Unnecessary electronics</li>
+					<li>Too much cash or credit cards</li>
+				</ul>
+			</div>
+		</div>
+
+
+		<div>
+			<div>
+				<h2>About the tour: </h2>
+				<!-- name tour -->
+			</div>
+		</div>
+
+		<div>
+			<div class="tour">
+				<div class="left">
+					<h2>Tour Name</h2>
+					<p><img class="ig" src="calen.png" width="32px" height="30px" style=""></img>Duration: 7 days</p>
+					<p><img class="ig" src="money.png" width="32px" height="30px"></img>Cost: $2000</p>
+					<p><img class="ig" src="time.png" width="32px" height="30px"></img>Departure Time: 9:00 AM</p>
+					<p>Contact Information:</p>
+					<ul>
+						<li>Phone: 555-555-5555</li>
+						<li>Email: info@tour.com</li>
+						<li>Address: 123 Main St, Anytown USA</li>
+					</ul>
+				</div>
+				<div class="right">
+					<img src="Senses.jpg" alt="Hotel Photo">
+				</div>
+			</div>
+
+			<div class="tour">
+				<div class="left">
+					<h2>Tour Name</h2>
+					<p><img class="ig" src="calen.png" width="32px" height="30px">Duration: 14 days</p>
+					<p><img class="ig" src="money.png" width="32px" height="30px">Cost: $3800</p>
+					<p><img class="ig" src="time.png" width="32px" height="30px">Departure Time: 10:00 AM</p>
+					<p>Contact Information:</p>
+					<ul>
+						<li>Phone: 555-555-5555</li>
+						<li>Email: info@tour.com</li>
+						<li>Address: 123 Main St, Anytown USA</li>
+					</ul>
+				</div>
+				<div class="right">
+					<img src="Senses.jpg" alt="Hotel Photo">
+				</div>
+			</div>
+
+			<div class="tour">
+				<div class="left">
+					<h2>Tour Name</h2>
+					<p><img class="ig" src="calen.png" width="32px" height="30px">Duration: 30 days</p>
+					<p><img class="ig" src="money.png" width="32px" height="30px">Cost: $7000</p>
+					<p><img class="ig" src="time.png" width="32px" height="30px">Departure Time: 11:00 AM</p>
+					<p>Contact Information:</p>
+					<ul>
+						<li>Phone: 555-555-5555</li>
+						<li>Email: info@tour.com</li>
+						<li>Address: 123 Main St, Anytown USA</li>
+					</ul>
+				</div>
+				<div class="right">
+					<img src="Senses.jpg" alt="Hotel Photo">
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<footer class="footer">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-9 text-center">
+					<div class="footer-site-logo mb-4">
+						<a href="#">TravellingKZ</a>
+					</div>
+					<ul class="list-unstyled nav-links mb-5">
+						<li><a href="#">About</a></li>
+						<li><a href="#">Services</a></li>
+						<li><a href="#">Press</a></li>
+						<li><a href="#">Careers</a></li>
+						<li><a href="#">FAQ</a></li>
+						<li><a href="#">Legal</a></li>
+						<li><a href="#">Contact</a></li>
+					</ul>
+					<div class="social mb-4">
+						<h3>Stay in touch</h3>
+						<ul class="list-unstyled">
+							<li class="in"><a href="#"><span class="icon-instagram"><img src="inst.jpg" height="40px" width="40px" style="border-radius: 20px; position: relative; bottom: 2px;"></span></a></li>
+							<li class="fb"><a href="#"><span class="icon-facebook"><img src="fb.png" height="40px" width="50px" style="border-radius: 20px; position: relative; bottom: 2px; right: 2px;"></span></a></li>
+							<li class="tw"><a href="#"><span class="icon-twitter"><img src="twit.png" height="40px" width="40px" style="border-radius: 20px; position: relative; bottom: 2px;"></span></a></li>
+							<li class="pin"><a href="#"><span class="icon-pinterest"><img src="ticc.png" height="40px" width="47px" style="border-radius: 20px; position: relative; bottom: 2px; right: 3px;"></span></a></li>
+							<li class="dr"><a href="#"><span class="icon-dribbble"></span><img src="what.jpeg" height="40px" width="55px" style="border-radius: 20px; position: relative; bottom: 2px; right: 5px;"></a></li>
+						</ul>
+					</div>
+					<div class="copyright">
+						<p class="mb-0"><small>&copy; TravellingKZ. All Rights Reserved.</small></p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+	<script type="text/javascript" src="js/jquery-1.11.2.min.js"></script> 
+	<script type="text/javascript" src="js/scrollToTop.js"></script>
+	<script type="text/javascript" src="js/moment.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap-datetimepicker.min.js"></script>
+	<script type="text/javascript" src="js/jquery.flexslider-min.js"></script>
+	<script type="text/javascript" src="js/templatemo-script.js"></script> 
+	<script type="text/javascript" src="./js/onscrollReveal.js"></script>
+</body>
+
+</html>

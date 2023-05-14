@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+{% load i18n static %}
+
+{% block content %}
+{% if form.errors and not form.non_field_errors %}
+<p class="errornote">
+{% if form.errors.items|length == 1 %}{% trans "Please correct the error below." %}{% else %}{% trans "Please correct the errors below." %}{% endif %}
+</p>
+{% endif %}
+
+{% if form.non_field_errors %}
+{% for error in form.non_field_errors %}
+<p class="errornote">
+    {{ error }}
+</p>
+{% endfor %}
+{% endif %}
+
+<div id="content-main">
+
+{% if user.is_authenticated %}
+<p class="errornote">
+{% blocktrans trimmed %}
+    You are authenticated as {{ username }}, Would you like to login to a different account?
+{% endblocktrans %}
+</p>
+{% endif %}
+<br>
+<div class="row justify-content-center">
+  <div class="col-md-6 col-lg-3">
+    <h2 class="heading-section" style="margin-left: 25%;">Login </h2><br>
+    <div style="margin-left: 12%;">
+    <form action="{% url 'accounts:login' %}" method="post" id="login-form">
+      {% csrf_token %}
+      <div class="form-group">
+        {{ form.username.errors }}
+        {{ form.username }}
+      </div>
+      <div class="form-group">
+        {{ form.password.errors }}
+        {{ form.password }}
+        <input type="hidden" name="next" value="{{ next }}">
+      </div>
+      <br>
+      </div>
+      <div class="form-group">
+        <button type="submit" class="form-control btn btn-success submit px-3" value="{% trans 'Log in' %}"><a href="/tour"></a>Login</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+
+</div>
+{% endblock %}
+
+
+
+
+
+  <!-- {% if form.errors %}
+    <p>Your username and password didn't match. Please try again.</p>
+  {% endif %}
+
+  {% if next %}
+    {% if user.is_authenticated %}
+      <p>Your account doesn't have access to this page. To proceed,
+      please login with an account that has access.</p>
+    {% else %}
+      <p>Please login to see this page.</p>
+    {% endif %}
+  {% endif %}
+
+  <form method="post" action="{% url 'login' %}">
+    {% csrf_token %}
+    <table>
+      <tr>
+        <td>{{ form.username.label_tag }}</td>
+        <td>{{ form.username }}</td>
+      </tr>
+      <tr>
+        <td>{{ form.password.label_tag }}</td>
+        <td>{{ form.password }}</td>
+      </tr>
+    </table>
+    <input type="submit" value="login">
+    <input type="hidden" name="next" value="{{ next }}">
+  </form>
+
+  {# Assumes you setup the password_reset view in your URLconf #}
+  <p><a href="{% url 'password_reset' %}">Lost password?</a></p> -->
+
+
