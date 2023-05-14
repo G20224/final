@@ -323,12 +323,14 @@
 
 	<section class="container tm-home-section-1" id="more">
 		<div class="row" style="padding-top:80px;">
-
-			<div class="centered-text">
-				<h1>Our best hotels</h1>
-				<p>You can visit them</p>
+			<div>
+				<label for="tour-selection">Better Hotel For You Choise:</label>
+				<select id="tour-selection" name="tour-selection">
+					<option value="hotel 1">Amangiri, Canyon Point, USA</option>
+					<option value="hotel 2">Borgo Egnazia, Savelletri di Fasano, Italy</option>
+					<option value="hotel 3">242. Sk. Uzunyali No:3, 48700 Marmaris, Turkey</option>
+				</select>
 			</div>
-
 			<div class="col-lg-3 col-md-3 col-sm-6">
 				<div class="tm-home-box-1">
 					<div class="frame">
@@ -388,66 +390,58 @@
 			</div>
 		</div>
 
-
-		<div>
-			<div>
-				<h2>About the tour: </h2>
-				<!-- name tour -->
-			</div>
-		</div>
-
 		<div>
 			<div class="tour">
 				<div class="left">
-					<h2>Tour Name</h2>
-					<p><img class="ig" src="calen.png" width="32px" height="30px" style=""></img>Duration: 7 days</p>
-					<p><img class="ig" src="money.png" width="32px" height="30px"></img>Cost: $2000</p>
+					<h2>{{ tour.name }}</h2>
+					<p><img class="ig" src="calen.png" width="32px" height="30px" style=""></img>Duration: {{ tour.duration }}</p>
+					<p><img class="ig" src="money.png" width="32px" height="30px"></img>Cost: ${{ tour.price }}</p>
 					<p><img class="ig" src="time.png" width="32px" height="30px"></img>Departure Time: 9:00 AM</p>
 					<p>Contact Information:</p>
 					<ul>
 						<li>Phone: 555-555-5555</li>
 						<li>Email: info@tour.com</li>
-						<li>Address: 123 Main St, Anytown USA</li>
+						<li>Address: Amangiri, Canyon Point, USA</li>
 					</ul>
 				</div>
 				<div class="right">
-					<img src="Senses.jpg" alt="Hotel Photo">
+					<img src="Amanagiri.jpg" alt="Hotel Photo">
 				</div>
 			</div>
 
 			<div class="tour">
 				<div class="left">
-					<h2>Tour Name</h2>
-					<p><img class="ig" src="calen.png" width="32px" height="30px">Duration: 14 days</p>
-					<p><img class="ig" src="money.png" width="32px" height="30px">Cost: $3800</p>
+					<h2>{{ tour.name }}</h2>
+					<p><img class="ig" src="calen.png" width="32px" height="30px">Duration: {{ tour.duration * 2}}</p>
+					<p><img class="ig" src="money.png" width="32px" height="30px">Cost: ${{ tour.price * 2}}</p>
 					<p><img class="ig" src="time.png" width="32px" height="30px">Departure Time: 10:00 AM</p>
 					<p>Contact Information:</p>
 					<ul>
 						<li>Phone: 555-555-5555</li>
 						<li>Email: info@tour.com</li>
-						<li>Address: 123 Main St, Anytown USA</li>
+						<li>Address: Borgo Egnazia, Savelletri di Fasano, Italy</li>
 					</ul>
 				</div>
 				<div class="right">
-					<img src="Senses.jpg" alt="Hotel Photo">
+					<img src="Borgo.jpg" alt="Hotel Photo">
 				</div>
 			</div>
 
 			<div class="tour">
 				<div class="left">
-					<h2>Tour Name</h2>
-					<p><img class="ig" src="calen.png" width="32px" height="30px">Duration: 30 days</p>
-					<p><img class="ig" src="money.png" width="32px" height="30px">Cost: $7000</p>
+					<h2>{{ tour.name }}</h2>
+					<p><img class="ig" src="calen.png" width="32px" height="30px">{{ tour.duration * 4}}</p>
+					<p><img class="ig" src="money.png" width="32px" height="30px">Cost: ${{ tour.price * 3}}</p>
 					<p><img class="ig" src="time.png" width="32px" height="30px">Departure Time: 11:00 AM</p>
 					<p>Contact Information:</p>
 					<ul>
 						<li>Phone: 555-555-5555</li>
 						<li>Email: info@tour.com</li>
-						<li>Address: 123 Main St, Anytown USA</li>
+						<li>Address: 242. Sk. Uzunyali No:3, 48700 Marmaris, Turkey</li>
 					</ul>
 				</div>
 				<div class="right">
-					<img src="Senses.jpg" alt="Hotel Photo">
+					<img src="Marmaris.jpg" alt="Hotel Photo">
 				</div>
 			</div>
 		</div>
