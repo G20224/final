@@ -2,52 +2,52 @@
 {% load i18n static %}
 
 {% block content %}
+
 {% if form.errors and not form.non_field_errors %}
-<p class="errornote">
+<p class="errornote text-center">
 {% if form.errors.items|length == 1 %}{% trans "Please correct the error below." %}{% else %}{% trans "Please correct the errors below." %}{% endif %}
 </p>
 {% endif %}
 
 {% if form.non_field_errors %}
 {% for error in form.non_field_errors %}
-<p class="errornote">
+<p class="errornote text-center">
     {{ error }}
 </p>
 {% endfor %}
 {% endif %}
 
+
 <div id="content-main">
 
 {% if user.is_authenticated %}
-<p class="errornote">
+<p class="errornote text-center">
 {% blocktrans trimmed %}
     You are authenticated as {{ username }}, Would you like to login to a different account?
 {% endblocktrans %}
 </p>
 {% endif %}
 <br>
-<div class="card">
+<div class="card" style="left:35%">
   <h2>Login</h2>
   <form action="{% url 'accounts:login' %}" method="post" id="login-form">
     {% csrf_token %}
     <div class="form-group">
-      {{ form.username.errors }}
-      {{ form.username }}
+      <label for="username">Username:</label>
+      <input type="text" class="form-control" id="username" name="username" required>
     </div>
     <div class="form-group">
-      {{ form.password.errors }}
-      {{ form.password }}
-      <input type="hidden" name="next" value="{{ next }}">
+      <label for="password">Password:</label>
+      <input type="password" class="form-control" id="password" name="password" required>
     </div>
-    <div class="form-group">
-      <button type="submit" class="form-control btn btn-success submit px-3" value="{% trans 'Log in' %}"><a href="/tour"></a>Login</button>
-    </div>
+    <button type="submit" class="btn">Login</button>
   </form>
+</div>
 </div>
 
 <br>
     <div class="object">
-        <img src="a0c.jpg" alt="Image">
+        <img src="https://raw.githubusercontent.com/G20224/For-me/main/photo_5404406071122054253_y.jpg" alt="Image">
         <p>OI-OI-OI mate, come on join us BLOOOOOOODY HELL!!!</p>
       </div>
 
@@ -56,9 +56,9 @@
 
 
 
+
+
 <!-- 
-
-
 <div class="row justify-content-center">
   <div class="col-md-6 col-lg-3">
     <h2 class="heading-section" style="margin-left: 25%;">Login </h2><br>
@@ -81,8 +81,8 @@
       </div>
     </form>
   </div>
-</div>
- -->
+</div> -->
+
 
 </div>
 {% endblock %}

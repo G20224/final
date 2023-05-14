@@ -8,6 +8,7 @@ from django.http import HttpResponseRedirect, HttpResponseNotFound
 from django.contrib.auth.decorators import login_required, permission_required
 from django.contrib import messages
 from .forms import ReviewForm
+from django.contrib.auth import logout
 
 def about(request):
   template = loader.get_template('about.html')
@@ -72,7 +73,7 @@ def tour_detail(request, pk):
         viewed_tours.insert(0, viewed_tour)
         viewed_tours = viewed_tour[:max_viewed_tours_length]
         request.session['viewed_tours'] = viewed_tours
-    return render(request, "qwer.html", context)
+    return render(request, "reviews/tour_detail.html", context)
 
 @login_required 
 @permission_required('mysite.create', raise_exception=True)
@@ -105,7 +106,7 @@ def edit(request, id):
             return HttpResponseRedirect("/index")
         else:
             return render(request, "edit.html", {"tour": tour})
-    except Tour.DoesNotExist:
+    except Movie.DoesNotExist:
         return HttpResponseNotFound("<h2>Tour not found</h2>")
      
 
@@ -116,7 +117,7 @@ def delete(request, id):
         tour = Tour.objects.get(id=id)
         tour.delete()
         return HttpResponseRedirect("/index")
-    except Tour.DoesNotExist:
+    except Movie.DoesNotExist:
         return HttpResponseNotFound("<h2>Tour not found</h2>")    
 
 def review_edit(request, tour_pk, review_pk=None):
@@ -141,8 +142,15 @@ def review_edit(request, tour_pk, review_pk=None):
                 messages.success(request, "Review for \"{}\" created.".format(tour))
             
             updated_review.save()
-            return redirect("qwer", tour.pk)
+            return redirect("tour_detail", tour.pk)
     else:
         form = ReviewForm(instance=review)
 
     return render(request, "reviews/review_edit.html",{"form": form, "instance": review, "model_type": "Review", "related_instance": tour, "related_model_type": "Tour"})
+
+
+def logout_view(request):
+    if request.method == 'POST':
+        logout(request)
+        return redirect('/tour') 
+    return render(request, 'registration/logout.html')   

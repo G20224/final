@@ -57,21 +57,22 @@
   margin-top: 10px;
 }
         
-	</style>
+</style>
 </head>
 <body>
 	<div class="container">
-		<h1>Logout</h1>
-		<p>Are you sure you want to log out?</p>
-		<form action="logout.php" method="post">
-			<button type="submit" name="logout">Logout</button>
-		</form>
-	</div>
-<br>
-    <div class="object">
-        <img src="maxresdefault.jpg" alt="Image">
-        <p>Boy are u sure want to log out huh?</p>
-      </div>
+    <h1>Logout</h1>
+    <p>Are you sure you want to log out?</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" name="logout">Logout</button>
+    </form>
+  </div>
+  <br>
+  <div class="object">
+    <img src="https://raw.githubusercontent.com/G20224/For-me/main/photo_5404406071122054254_y.jpg" alt="Image" width="25%">
+    <p>Boy are u sure want to log out huh?</p>
+  </div>
       
 
 </body>
