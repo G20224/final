@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Logout</title>
+	<style type="text/css">
+		body {
+			font-family: Arial, sans-serif;
+			background-color: #f4f4f4;
+		}
+		.container {
+			max-width: 600px;
+			margin: 0 auto;
+			padding: 20px;
+			background-color: #fff;
+			border-radius: 10px;
+			box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+			text-align: center;
+		}
+		h1 {
+			margin-top: 0;
+			font-size: 36px;
+			color: #333;
+		}
+		p {
+			font-size: 18px;
+			color: #666;
+		}
+		button {
+			padding: 10px 20px;
+			font-size: 18px;
+			background-color: #333;
+			color: #fff;
+			border-radius: 5px;
+			border: none;
+			cursor: pointer;
+			transition: background-color 0.3s ease;
+		}
+		button:hover {
+			background-color: #555;
+		}
+
+        .object {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.object img {
+  max-width: 50%;
+  height: auto;
+}
+
+.object p {
+  font-size: 18px;
+  text-align: center;
+  margin-top: 10px;
+}
+        
+	</style>
+</head>
+<body>
+	<div class="container">
+		<h1>Logout</h1>
+		<p>Are you sure you want to log out?</p>
+		<form action="logout.php" method="post">
+			<button type="submit" name="logout">Logout</button>
+		</form>
+	</div>
+<br>
+    <div class="object">
+        <img src="maxresdefault.jpg" alt="Image">
+        <p>Boy are u sure want to log out huh?</p>
+      </div>
+      
+
+</body>
+</html>

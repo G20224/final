@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+
+<head>
+    <title>{% block title %} Login Page {% endblock %}</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
+	<style>
+		body {
+			background-color: #f8f9fa;
+			font-family: 'Roboto', sans-serif;
+		}
+
+		.container {
+			margin-top: 50px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+
+		.card {
+			padding: 20px;
+			box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+			max-width: 400px;
+			text-align: center;
+		}
+
+		.form-group {
+			text-align: left;
+		}
+
+		.form-control {
+			margin-bottom: 10px;
+		}
+
+		.btn {
+			background-color: #343a40;
+			color: #fff;
+			width: 100%;
+			border-radius: 20px;
+		}
+
+		.btn:hover {
+			background-color: #23272b;
+		}
+
+        .object {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        }
+
+        .object img {
+        max-width: 20%;
+        height: auto;
+        }
+
+        .object p {
+        font-size: 18px;
+        text-align: center;
+        margin-top: 10px;
+        }
+
+	</style>
+</head>
+
+<body>
+    <div class="container">
+		{% block content %}
+
+		{% endblock %}
+	</div>
+</body>
+
+</html>    
