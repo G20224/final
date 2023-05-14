@@ -179,71 +179,6 @@
 			border-radius: 10px;
 		}
 
-		.footer {
-			background-color: #f8f9fa;
-			padding: 50px 0;
-			margin-top: 50px;
-		}
-
-		.footer-site-logo a {
-			font-size: 24px;
-			font-weight: bold;
-			color: #333;
-		}
-
-		.nav-links li {
-			display: inline-block;
-			margin-right: 20px;
-		}
-
-		.nav-links li:last-child {
-			margin-right: 0;
-		}
-
-		.social h3 {
-			font-size: 20px;
-			margin-bottom: 20px;
-		}
-
-		.social ul {
-			margin: 0;
-			padding: 0;
-		}
-
-		.social li {
-			display: inline-block;
-			margin-right: 10px;
-		}
-
-		.social li:last-child {
-			margin-right: 0;
-		}
-
-		.social a {
-			display: block;
-			width: 40px;
-			height: 40px;
-			line-height: 40px;
-			text-align: center;
-			border-radius: 50%;
-			background-color: #333;
-			color: #fff;
-		}
-
-		.social a:hover {
-			background-color: #555;
-		}
-
-		.footer p {
-			font-size: 16px;
-			color: #666;
-			margin-bottom: 0;
-		}
-
-		body {
-			background: linear-gradient(to bottom, #1E90FF, #FFFFFF);
-		}
-
 		.ig {
 			margin-right: 10px;
 		}
@@ -274,44 +209,6 @@
 	<div class="scroll-up-btn">
 		<i class="fa fa-angle-up"></i>
 	</div>
-	<nav class="navbar navbar-expand-lg">
-		<div class="container">
-			<a class="navbar-brand" href="/tour">TravellingKZ</a>
-			<img src="https://raw.githubusercontent.com/G20224/For-me/main/scr.png" alt="12" width="15%">
-			<span class="navbar-toggler-icon"></span>
-			</button>
-			<div class="collapse navbar-collapse" id="navbarNav">
-				<ul class="navbar-nav">
-					<li class="nav-item active">
-						<a class="nav-link" href="/tour">Home</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#">Products</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="/about">About</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#">Contact</a>
-					</li>
-					<form class="search-bar" method="GET" action="{% url 'search_results' %}">
-						<input name="searched" type="text" placeholder="Search...">
-						<button type="submit"><i class="fa fa-search"></i></button>
-					</form>
-					{% if user.is_authenticated %}
-					<li class="nav-item">
-						<a class="nav-link" href="/accounts/logout">Logout</a>
-					</li>
-					{% else %}
-					<li class="nav-item">
-						<a class="nav-link" href="/accounts/login">Login</a>
-					</li>
-					{% endif %}
-					<span class="cart-icon"><i class="fa fa-shopping-cart"></i></span>
-				</ul>
-			</div>
-		</div>
-	</nav>
 
 	<div>
 		<div class="flexslider flexslider-banner">
@@ -323,39 +220,40 @@
 
 	<section class="container tm-home-section-1" id="more">
 		<div class="row" style="padding-top:80px;">
-			<div>
+			<!-- <div>
 				<label for="tour-selection">Better Hotel For You Choise:</label>
 				<select id="tour-selection" name="tour-selection">
 					<option value="hotel 1">Amangiri, Canyon Point, USA</option>
 					<option value="hotel 2">Borgo Egnazia, Savelletri di Fasano, Italy</option>
 					<option value="hotel 3">242. Sk. Uzunyali No:3, 48700 Marmaris, Turkey</option>
 				</select>
-			</div>
+			</div> -->
+
 			<div class="col-lg-3 col-md-3 col-sm-6">
 				<div class="tm-home-box-1">
 					<div class="frame">
-						<img src="amangiri.jpg" alt="Image 1">
+						<img src="https://raw.githubusercontent.com/G20224/For-me/main/amangiri.jpg" alt="Image 1">
 					</div>
 				</div>
 			</div>
 			<div class="col-lg-3 col-md-3 col-sm-6">
 				<div class="tm-home-box-1">
 					<div class="frame">
-						<img src="borgo.jpg" alt="Image 2">
+						<img src="https://raw.githubusercontent.com/G20224/For-me/main/borgo.jpg" alt="Image 2">
 					</div>
 				</div>
 			</div>
 			<div class="col-lg-3 col-md-3 col-sm-6">
 				<div class="tm-home-box-1">
 					<div class="frame">
-						<img src="romance.jpg" alt="Image 3">
+						<img src="https://raw.githubusercontent.com/G20224/For-me/main/romance.jpg" alt="Image 3">
 					</div>
 				</div>
 			</div>
 			<div class="col-lg-3 col-md-3 col-sm-6">
 				<div class="tm-home-box-1">
 					<div class="frame">
-						<img src="Senses.jpg" alt="Image 4">
+						<img src="https://raw.githubusercontent.com/G20224/For-me/main/Senses.jpg" alt="Image 4">
 					</div>
 				</div>
 			</div>
@@ -394,10 +292,10 @@
 			<div class="tour">
 				<div class="left">
 					<h2>{{ tour.name }}</h2>
-					<p><img class="ig" src="calen.png" width="32px" height="30px" style=""></img>Duration: {{
+					<p><img class="ig" src="https://raw.githubusercontent.com/G20224/For-me/main/calen.png" width="32px" height="30px" style=""></img>Duration: {{
 						tour.duration }}</p>
-					<p><img class="ig" src="money.png" width="32px" height="30px"></img>Cost: ${{ tour.price }}</p>
-					<p><img class="ig" src="time.png" width="32px" height="30px"></img>Departure Time: 9:00 AM</p>
+					<p><img class="ig" src="https://raw.githubusercontent.com/G20224/For-me/main/money.png" width="32px" height="30px"></img>Cost: ${{ tour.price }}</p>
+					<p><img class="ig" src="https://raw.githubusercontent.com/G20224/For-me/main/time.png" width="32px" height="30px"></img>Departure Time: 9:00 AM</p>
 					<p>Contact Information:</p>
 					<ul>
 						<li>Phone: 555-555-5555</li>
@@ -406,16 +304,16 @@
 					</ul>
 				</div>
 				<div class="right">
-					<img src="Amanagiri.jpg" alt="Hotel Photo">
+					<img src="https://raw.githubusercontent.com/G20224/For-me/main/amangiri.jpg" alt="Hotel Photo">
 				</div>
 			</div>
 
 			<div class="tour">
 				<div class="left">
 					<h2>{{ tour.name }}</h2>
-					<p><img class="ig" src="calen.png" width="32px" height="30px">Duration: {{ tour.duration }}</p>
-					<p><img class="ig" src="money.png" width="32px" height="30px">Cost: ${{ tour.price}}</p>
-					<p><img class="ig" src="time.png" width="32px" height="30px">Departure Time: 10:00 AM</p>
+					<p><img class="ig" src="https://raw.githubusercontent.com/G20224/For-me/main/calen.png" width="32px" height="30px">Duration: {{ tour.duration }}</p>
+					<p><img class="ig" src="https://raw.githubusercontent.com/G20224/For-me/main/money.png" width="32px" height="30px">Cost: ${{ tour.price}}</p>
+					<p><img class="ig" src="https://raw.githubusercontent.com/G20224/For-me/main/time.png" width="32px" height="30px">Departure Time: 10:00 AM</p>
 					<p>Contact Information:</p>
 					<ul>
 						<li>Phone: 555-555-5555</li>
@@ -424,16 +322,16 @@
 					</ul>
 				</div>
 				<div class="right">
-					<img src="Borgo.jpg" alt="Hotel Photo">
+					<img src="https://raw.githubusercontent.com/G20224/For-me/main/borgo.jpg" alt="Hotel Photo">
 				</div>
 			</div>
 
 			<div class="tour">
 				<div class="left">
 					<h2>{{ tour.name }}</h2>
-					<p><img class="ig" src="calen.png" width="32px" height="30px">{{ tour.duration}}</p>
-					<p><img class="ig" src="money.png" width="32px" height="30px">Cost: ${{ tour.price}}</p>
-					<p><img class="ig" src="time.png" width="32px" height="30px">Departure Time: 11:00 AM</p>
+					<p><img class="ig" src="https://raw.githubusercontent.com/G20224/For-me/main/calen.png" width="32px" height="30px">{{ tour.duration}}</p>
+					<p><img class="ig" src="https://raw.githubusercontent.com/G20224/For-me/main/money.png" width="32px" height="30px">Cost: ${{ tour.price}}</p>
+					<p><img class="ig" src="https://raw.githubusercontent.com/G20224/For-me/main/time.png" width="32px" height="30px">Departure Time: 11:00 AM</p>
 					<p>Contact Information:</p>
 					<ul>
 						<li>Phone: 555-555-5555</li>
@@ -442,7 +340,7 @@
 					</ul>
 				</div>
 				<div class="right">
-					<img src="Marmaris.jpg" alt="Hotel Photo">
+					<img src="https://raw.githubusercontent.com/G20224/For-me/main/romance.jpg" alt="Hotel Photo">
 				</div>
 			</div>
 		</div>
@@ -480,54 +378,7 @@
 	{% endif %}
 	{% endblock %}
 
-	<footer class="footer">
-		<div class="container">
-			<div class="row justify-content-center">
-				<div class="col-md-9 text-center">
-					<div class="footer-site-logo mb-4">
-						<a href="#">TravellingKZ</a>
-					</div>
-					<ul class="list-unstyled nav-links mb-5">
-						<li><a href="#">About</a></li>
-						<li><a href="#">Services</a></li>
-						<li><a href="#">Press</a></li>
-						<li><a href="#">Careers</a></li>
-						<li><a href="#">FAQ</a></li>
-						<li><a href="#">Legal</a></li>
-						<li><a href="#">Contact</a></li>
-					</ul>
-					<div class="social mb-4">
-						<h3>Stay in touch</h3>
-						<ul class="list-unstyled">
-							<li class="in"><a href="#"><span class="icon-instagram"><img src="inst.jpg" height="40px"
-											width="40px"
-											style="border-radius: 20px; position: relative; bottom: 2px;"></span></a>
-							</li>
-							<li class="fb"><a href="#"><span class="icon-facebook"><img src="fb.png" height="40px"
-											width="50px"
-											style="border-radius: 20px; position: relative; bottom: 2px; right: 2px;"></span></a>
-							</li>
-							<li class="tw"><a href="#"><span class="icon-twitter"><img src="twit.png" height="40px"
-											width="40px"
-											style="border-radius: 20px; position: relative; bottom: 2px;"></span></a>
-							</li>
-							<li class="pin"><a href="#"><span class="icon-pinterest"><img src="ticc.png" height="40px"
-											width="47px"
-											style="border-radius: 20px; position: relative; bottom: 2px; right: 3px;"></span></a>
-							</li>
-							<li class="dr"><a href="#"><span class="icon-dribbble"></span><img src="what.jpeg"
-										height="40px" width="55px"
-										style="border-radius: 20px; position: relative; bottom: 2px; right: 5px;"></a>
-							</li>
-						</ul>
-					</div>
-					<div class="copyright">
-						<p class="mb-0"><small>&copy; TravellingKZ. All Rights Reserved.</small></p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</footer>
+	
 
 	<script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
 	<script type="text/javascript" src="js/scrollToTop.js"></script>
