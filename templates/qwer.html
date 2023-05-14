@@ -1,33 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'base.html' %}
+
+{% block content %}
 
 <head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Travel Tour</title>
-
-	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,400italic,600,700' rel='stylesheet'
-		type='text/css'>
-	<link href="bootstrap.min.css" rel="stylesheet">
-	<link href="bootstrap-datetimepicker.min.css" rel="stylesheet">
-	<link href="flexslider.css" rel="stylesheet">
-	<link href="footer.css" rel="stylesheet">
-
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-
-	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
-
-	<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500&display=swap" rel="stylesheet">
-
-	<link href="https://fonts.googleapis.com/css?family=Source+Serif+Pro:400,600&display=swap" rel="stylesheet">
-
-	<link rel="stylesheet" href="fonts/icomoon/style.css">
-
-
-	<link rel="stylesheet" href="css/bootstrap.min.css">
-
 	<style>
 		.navbar {
 			background-image: url('https://raw.githubusercontent.com/G20224/For-me/main/mnt.png?token=GHSAT0AAAAAACAXPTI5HG5LT4LOHYR2FQAUZC43PZA');
@@ -283,6 +258,14 @@
 		#logo {
 			margin-bottom: 20px;
 		}
+
+		.centered-text {
+			text-align: center;
+			position: absolute;
+			bottom: 0;
+			right: 0;
+			margin: 0 20px 20px 0;
+		}
 	</style>
 </head>
 
@@ -332,17 +315,20 @@
 
 	<div>
 		<div class="flexslider flexslider-banner">
-			<h3>Tour in:</h3>
-			<!-- name tour -->
+			<img src="{{ MEDIA_URL }}{{ tour.image.url }}" alt="{{ x.tour.name }}" width="100%">
+
 		</div>
 	</div>
 
-	<div>
-
-	</div>
 
 	<section class="container tm-home-section-1" id="more">
 		<div class="row" style="padding-top:80px;">
+
+			<div class="centered-text">
+				<h1>Our best hotels</h1>
+				<p>You can visit them</p>
+			</div>
+
 			<div class="col-lg-3 col-md-3 col-sm-6">
 				<div class="tm-home-box-1">
 					<div class="frame">
